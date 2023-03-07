@@ -1,36 +1,10 @@
 import React, { Component } from 'react';
-import PropTypes, { func } from 'prop-types';
+import PropTypes from 'prop-types';
 
 class Card extends Component {
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3,
-      cardImage, cardRare, cardTrunfo, buttonDelete, removeCard } = this.props;
-
-    const button = (
-      <button
-        onClick={ removeCard }
-        className="delete-button"
-        type="button"
-        data-testid="delete-button"
-      >
-        Excluir
-      </button>
-    );
-
-    const trunfo = (
-      <div className="trunfo-div">
-        <p className="trunfo" data-testid="trunfo-card"><u>Trunfo</u></p>
-      </div>
-    );
-
-    let rare;
-    if (cardRare === 'normal') {
-      rare = 'rare-normal';
-    } else if (cardRare === 'raro') {
-      rare = 'rare-raro';
-    } else if (cardRare === 'muito raro') {
-      rare = 'rare-muito-raro';
-    }
+      cardImage, cardRare, cardTrunfo } = this.props;
 
     return (
       <div className="card">
@@ -70,9 +44,7 @@ class Card extends Component {
               <p className="attr2-value">{cardAttr3}</p>
             </div>
           </div>
-          {
-            buttonDelete === true && button
-          }
+
         </div>
       </div>
     );
@@ -88,13 +60,7 @@ Card.propTypes = {
   cardImage: PropTypes.string.isRequired,
   cardRare: PropTypes.string.isRequired,
   cardTrunfo: PropTypes.bool.isRequired,
-  buttonDelete: PropTypes.bool,
-  removeCard: PropTypes.func,
-};
 
-Card.defaultProps = {
-  buttonDelete: false,
-  removeCard: func,
 };
 
 export default Card;
