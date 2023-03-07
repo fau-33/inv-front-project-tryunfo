@@ -47,7 +47,8 @@ class App extends React.Component {
 
   onSaveButtonClick = () => {
     const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3,
-      cardImage, cardRare, cardTrunfo } = this.state;
+      cardImage, cardRare, cardTrunfo, hasTrunfo } = this.state;
+    const existTrunfo = cardTrunfo === true;
     const card = {
       cardName,
       cardDescription,
