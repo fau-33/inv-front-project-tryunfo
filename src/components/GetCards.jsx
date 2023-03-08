@@ -4,7 +4,7 @@ import Card from './Card';
 
 class GetCards extends Component {
   render() {
-    const { cards } = this.props;
+    const { cards, removeCard } = this.props;
     const htmlCards = [];
     cards.forEach((card) => {
       const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3,
@@ -19,6 +19,8 @@ class GetCards extends Component {
         cardAttr3={ cardAttr3 }
         cardRare={ cardRare }
         cardTrunfo={ cardTrunfo }
+        removeCard={ removeCard }
+        buttonDelete
       />);
       htmlCards.push(htmlCard);
     });
@@ -40,6 +42,7 @@ GetCards.propTypes = {
       cardTrunfo: PropTypes.bool.isRequired,
     }),
   ).isRequired,
+  removeCard: PropTypes.func.isRequired,
 
 };
 
